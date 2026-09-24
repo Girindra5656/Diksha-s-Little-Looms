@@ -174,6 +174,44 @@ export const PRODUCTS = [
       "A wine organza silk saree with fine sequin and zari detailing — light, modern and made to move on a reception evening. A single unique piece with a matching blouse piece.",
     images: ["/products/DLL-109.svg"],
   },
+  {
+    id: "DLL-110",
+    name: "Blue Modal Silk — Ajrakh Print",
+    fabric: "silk",
+    weave: "modal",
+    occasions: ["festive-wear", "traditional", "everyday"],
+    colors: [{ name: "Royal Blue Multicolour", hex: "#274690" }],
+    price: 3499, // TODO: set your real price
+    blurb: "Vivid multicolour Ajrakh print framed by a royal-blue border.",
+    details:
+      "A soft modal silk saree in a rich multicolour Ajrakh print — mandala medallions and florals in red, teal, ochre and pink across the body, framed by a solid royal-blue border and a floral pallu. Light, lustrous and easy to drape. Comes with a matching blue blouse piece.",
+    images: [
+      "/products/DLL-110.jpg",
+      "/products/DLL-110b.jpg",
+      "/products/DLL-110c.jpg",
+      "/products/DLL-110d.jpg",
+    ],
+    featured: true,
+  },
+  {
+    id: "DLL-111",
+    name: "Pink Modal Silk — Ajrakh Print",
+    fabric: "silk",
+    weave: "modal",
+    occasions: ["festive-wear", "traditional", "gifting"],
+    colors: [{ name: "Rani Pink", hex: "#C81E5A" }],
+    price: 3499, // TODO: set your real price
+    blurb: "Rani-pink Ajrakh print with navy bootas and an elephant pallu.",
+    details:
+      "A rani-pink modal silk saree with Ajrakh block-print motifs — paisley and floral bootas in navy and cream scattered across the body, a decorative Ajrakh border, and a signature elephant motif on the pallu. Light, glowing and full of character. Comes with a matching pink blouse piece.",
+    images: [
+      "/products/DLL-111.jpg",
+      "/products/DLL-111b.jpg",
+      "/products/DLL-111c.jpg",
+      "/products/DLL-111d.jpg",
+    ],
+    featured: true,
+  },
 
   // ---------------- COTTON ----------------
   {
