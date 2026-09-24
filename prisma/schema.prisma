@@ -1,0 +1,23 @@
+// Diksha's Little Looms — database schema
+//
+// Default provider is SQLite so the site runs locally with zero setup.
+// For production accounts on Vercel, change provider to "postgresql"
+// and set DATABASE_URL to a free Neon Postgres URL (see README).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("customer") // "customer" or "admin"
+  createdAt DateTime @default(now())
+}

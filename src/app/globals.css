@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ivory text-ink font-sans antialiased;
+}
+
+/* Headings use the display serif by default */
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+@layer components {
+  .container-max {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+           text-sm font-medium tracking-wide transition
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-gold
+           focus-visible:ring-offset-2 focus-visible:ring-offset-ivory;
+  }
+  .btn-primary {
+    @apply btn bg-wine text-ivory hover:bg-wine-dark;
+  }
+  .btn-gold {
+    @apply btn bg-gold text-ink hover:bg-gold/90;
+  }
+  .btn-outline {
+    @apply btn border border-wine/40 text-wine hover:bg-wine hover:text-ivory;
+  }
+  .btn-wa {
+    @apply btn bg-[#1FA855] text-white hover:bg-[#17914a];
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-ink
+           placeholder:text-muted/70
+           focus:border-wine focus:outline-none focus:ring-2 focus:ring-wine/20;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink;
+  }
+
+  .eyebrow {
+    @apply text-xs uppercase tracking-wide2 text-gold;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-white shadow-card;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-px
+           after:w-0 after:bg-current after:transition-all hover:after:w-full;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
