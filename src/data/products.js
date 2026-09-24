@@ -310,6 +310,72 @@ export const PRODUCTS = [
       "A sand-beige linen-blend with a subtle sheen and a maroon piping border. Resists wrinkles and drapes neatly — an easy formal choice. Available in Sand Beige and Olive.",
     images: ["/products/DLL-302.svg"],
   },
+
+  // ---------------- CHIFFON ----------------
+  {
+    id: "DLL-801",
+    name: "Blush Printed Chiffon",
+    fabric: "chiffon",
+    weave: "printed-chiffon",
+    occasions: ["festive-wear", "everyday"],
+    colors: [
+      { name: "Blush Pink", hex: "#E9C3C8" },
+      { name: "Powder Blue", hex: "#A9C7E0" },
+      { name: "Mint", hex: "#BFE3D0" },
+    ],
+    price: 2200,
+    blurb: "Floaty printed chiffon in soft pastels.",
+    details:
+      "A lightweight chiffon saree with a delicate floral print and a fine border — airy, elegant and easy to carry all evening. Available in Blush Pink, Powder Blue and Mint.",
+    images: ["/products/DLL-801.svg"],
+    featured: true,
+  },
+  {
+    id: "DLL-802",
+    name: "Wine Embroidered Chiffon",
+    fabric: "chiffon",
+    weave: "embroidered-chiffon",
+    occasions: ["wedding", "festive-wear"],
+    colors: [{ name: "Wine", hex: "#6E1E3A" }],
+    price: 3800,
+    blurb: "Sheer chiffon with fine thread embroidery.",
+    details:
+      "A wine chiffon saree with delicate thread-and-sequin embroidery along the border and pallu — a graceful choice for evening functions. A single unique piece with a matching blouse piece.",
+    images: ["/products/DLL-802.svg"],
+  },
+
+  // ---------------- GEORGETTE ----------------
+  {
+    id: "DLL-901",
+    name: "Coral Printed Georgette",
+    fabric: "georgette",
+    weave: "printed-georgette",
+    occasions: ["everyday", "festive-wear"],
+    colors: [
+      { name: "Coral", hex: "#E2725B" },
+      { name: "Teal", hex: "#1E6E6E" },
+      { name: "Mustard", hex: "#CF9A2A" },
+    ],
+    price: 2400,
+    blurb: "Crinkled georgette with a lively print.",
+    details:
+      "A soft georgette saree with a bright all-over print and a light border — comfortable, wrinkle-friendly and full of colour. Available in Coral, Teal and Mustard.",
+    images: ["/products/DLL-901.svg"],
+  },
+  {
+    id: "DLL-902",
+    name: "Black Sequin Georgette",
+    fabric: "georgette",
+    weave: "sequin-georgette",
+    occasions: ["wedding", "festive-wear"],
+    colors: [{ name: "Black", hex: "#2A2320" }],
+    price: 4200,
+    blurb: "Party-ready georgette with all-over sequins.",
+    details:
+      "A black georgette saree with all-over sequin work that catches the light — made for receptions and parties. A single unique piece with a matching blouse piece.",
+    images: ["/products/DLL-902.svg"],
+    featured: true,
+  },
 ];
 
 // --- helpers used across the site (you don't need to edit these) ---

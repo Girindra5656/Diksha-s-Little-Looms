@@ -67,6 +67,28 @@ export const FABRICS = [
       { slug: "linen-blend", name: "Linen Blend" },
     ],
   },
+  {
+    slug: "chiffon",
+    name: "Chiffon",
+    blurb: "Sheer, floaty drapes with a soft, elegant fall.",
+    weaves: [
+      { slug: "plain-chiffon", name: "Plain" },
+      { slug: "printed-chiffon", name: "Printed" },
+      { slug: "embroidered-chiffon", name: "Embroidered" },
+      { slug: "bandhani-chiffon", name: "Bandhani" },
+    ],
+  },
+  {
+    slug: "georgette",
+    name: "Georgette",
+    blurb: "Light, crinkled texture that drapes beautifully.",
+    weaves: [
+      { slug: "plain-georgette", name: "Plain" },
+      { slug: "printed-georgette", name: "Printed" },
+      { slug: "embroidered-georgette", name: "Embroidered" },
+      { slug: "sequin-georgette", name: "Sequin" },
+    ],
+  },
 ];
 
 export const OCCASIONS = [
