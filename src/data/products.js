@@ -3,212 +3,312 @@
 // ------------------------------------------------------------------
 // This is where you manage your shop. To add a saree, copy one block
 // below, paste it, and change the details. To remove one, delete its
-// block. To hide one temporarily, set  hidden: true.
+// block. To hide one, set  hidden: true.
 //
-//   id       – a short unique code (also used as the image file name)
-//   name     – the saree's name shown to customers
-//   category – must match a slug in src/lib/constants.js:
-//              banarasi-silk | modal-silk | cotton | office-wear
-//              traditional | wedding | giftings
-//   price    – number only, in rupees (no commas, no ₹)
-//   fabric   – e.g. "Pure Katan Silk"
-//   color    – main colour, e.g. "Deep Wine"
-//   blurb    – one short line shown on the card
-//   details  – a fuller description for the product page
-//   image    – "/products/<id>.svg"  (replace with your real photo,
-//              e.g. "/products/DLL-101.jpg", once you add it)
-//   featured – true to show it on the home page
-//   hidden   – true to hide it from the shop
+// FIELDS FOR EACH SAREE:
+//   id        – short unique code (also used as the image file name)
+//   name      – the saree's name shown to customers
+//   fabric    – one fabric slug: "silk" | "cotton" | "linen"
+//   weave     – one weave slug that belongs to that fabric, e.g.
+//               silk  -> banarasi | katan | modal | kesar | bangalori
+//                        | bhagalpuri | tussar | organza
+//               cotton-> handloom | khadi | malmal | jamdani | ikat | chanderi
+//               linen -> pure-linen | linen-blend
+//   occasions – one OR MORE: everyday | office-wear | festive-wear
+//               | traditional | wedding | gifting
+//   colors    – list of colours this saree comes in. ONE colour = a
+//               single unique piece. MANY colours = customer picks one.
+//               Each colour is { name, hex }.  (hex is just for the dot)
+//   price     – number only, in rupees (no commas, no ₹)
+//   blurb     – one short line shown on the card
+//   details   – a fuller description for the product page
+//   images    – list of photo paths. First one is the main photo.
+//               Replace "/products/<id>.svg" with your real photo, e.g.
+//               ["/products/DLL-101.jpg", "/products/DLL-101b.jpg"]
+//   featured  – true to show it on the home page
+//   hidden    – true to hide it from the shop
+//
+// (Fabric, weave and occasion names/slugs are all defined in
+//  src/lib/constants.js — add or rename them there.)
 // ==================================================================
 
 export const PRODUCTS = [
+  // ---------------- SILK ----------------
   {
     id: "DLL-101",
-    name: "Rani Zari Banarasi",
-    category: "banarasi-silk",
+    name: "Rani Pink Katan Banarasi",
+    fabric: "silk",
+    weave: "katan",
+    occasions: ["wedding", "festive-wear"],
+    colors: [
+      { name: "Rani Pink", hex: "#B03060" },
+      { name: "Deep Wine", hex: "#7A1E3C" },
+      { name: "Royal Blue", hex: "#26408B" },
+    ],
     price: 12500,
-    fabric: "Pure Katan Silk",
-    color: "Deep Wine",
-    blurb: "Handwoven kadhwa buti with a broad zari border.",
+    blurb: "Pure Katan silk with gold zari, in three regal colours.",
     details:
-      "A pure Katan silk Banarasi in a deep wine ground, woven on the handloom with gold zari kadhwa butis scattered across the body and a broad, richly patterned border. The pallu carries a traditional jhaalar. Comes with an unstitched matching blouse piece.",
-    image: "/products/DLL-101.svg",
+      "A pure Katan silk Banarasi woven on the handloom with gold zari butis across the body and a broad, richly patterned border. Available in Rani Pink, Deep Wine and Royal Blue — tell us your pick when you order. Comes with an unstitched matching blouse piece.",
+    images: ["/products/DLL-101.svg"],
     featured: true,
   },
   {
     id: "DLL-102",
     name: "Ivory Kadwa Banarasi",
-    category: "banarasi-silk",
+    fabric: "silk",
+    weave: "banarasi",
+    occasions: ["wedding", "traditional"],
+    colors: [{ name: "Ivory & Gold", hex: "#EFE3D0" }],
     price: 15800,
-    fabric: "Pure Katan Silk",
-    color: "Ivory & Gold",
-    blurb: "Bridal-soft ivory with all-over meenakari.",
+    blurb: "Bridal-soft ivory with all-over meenakari — one unique piece.",
     details:
-      "An ivory Katan silk Banarasi with delicate meenakari work in soft rose and gold. Light enough for long wear, grand enough for a wedding. Includes a matching blouse piece.",
-    image: "/products/DLL-102.svg",
+      "An ivory Katan silk Banarasi with delicate meenakari work in soft rose and gold. Light enough for long wear, grand enough for a wedding. A single unique piece. Includes a matching blouse piece.",
+    images: ["/products/DLL-102.svg"],
     featured: true,
   },
   {
     id: "DLL-103",
-    name: "Emerald Jangla Banarasi",
-    category: "banarasi-silk",
-    price: 18900,
-    fabric: "Pure Katan Silk",
-    color: "Emerald",
-    blurb: "Dense jangla weave across the full body.",
+    name: "Emerald Modal Silk",
+    fabric: "silk",
+    weave: "modal",
+    occasions: ["festive-wear", "everyday"],
+    colors: [
+      { name: "Emerald", hex: "#1F5C46" },
+      { name: "Teal", hex: "#1E6E6E" },
+    ],
+    price: 3600,
+    blurb: "Feather-light modal silk with a luminous sheen.",
     details:
-      "A statement emerald Banarasi with a dense jangla vine pattern in gold zari covering the entire body, finished with a heavy pallu. A true heirloom piece.",
-    image: "/products/DLL-103.svg",
+      "A modal silk saree with a subtle self-sheen and a fine contrast border. Incredibly light and easy to drape. Available in Emerald and Teal.",
+    images: ["/products/DLL-103.svg"],
   },
   {
-    id: "DLL-201",
+    id: "DLL-104",
     name: "Blush Modal Silk",
-    category: "modal-silk",
+    fabric: "silk",
+    weave: "modal",
+    occasions: ["everyday", "office-wear", "gifting"],
+    colors: [
+      { name: "Blush Pink", hex: "#E9C3C8" },
+      { name: "Sky Blue", hex: "#A9C7E0" },
+      { name: "Sand", hex: "#CDB79A" },
+    ],
     price: 3200,
-    fabric: "Modal Silk",
-    color: "Blush Pink",
-    blurb: "Cloud-light drape with a natural sheen.",
+    blurb: "Cloud-light everyday drape in three soft pastels.",
     details:
-      "A blush-pink modal silk saree with a subtle self-sheen and a fine contrast border. Incredibly light and easy to drape — a favourite for long days.",
-    image: "/products/DLL-201.svg",
+      "A soft modal silk saree with a natural sheen and a thin gold border — a favourite for long days. Available in Blush Pink, Sky Blue and Sand. Comes gift-ready if you'd like.",
+    images: ["/products/DLL-104.svg"],
+    featured: true,
+  },
+  {
+    id: "DLL-105",
+    name: "Golden Kesar Silk",
+    fabric: "silk",
+    weave: "kesar",
+    occasions: ["festive-wear", "traditional"],
+    colors: [{ name: "Golden Yellow", hex: "#D6A32E" }],
+    price: 8900,
+    blurb: "Warm golden silk with a woven temple border.",
+    details:
+      "A lustrous golden Kesar silk with a woven temple border and a richly patterned pallu — a festive classic. A single unique piece with a matching blouse piece.",
+    images: ["/products/DLL-105.svg"],
+  },
+  {
+    id: "DLL-106",
+    name: "Wine Bangalori Silk",
+    fabric: "silk",
+    weave: "bangalori",
+    occasions: ["festive-wear"],
+    colors: [
+      { name: "Wine", hex: "#6E1E3A" },
+      { name: "Bottle Green", hex: "#1F4A32" },
+    ],
+    price: 4200,
+    blurb: "Smooth Bangalori silk with a glossy fall.",
+    details:
+      "A smooth Bangalori silk saree with a glossy finish and a contrast zari border. Available in Wine and Bottle Green.",
+    images: ["/products/DLL-106.svg"],
+  },
+  {
+    id: "DLL-107",
+    name: "Slate Bhagalpuri Silk",
+    fabric: "silk",
+    weave: "bhagalpuri",
+    occasions: ["office-wear", "everyday"],
+    colors: [
+      { name: "Slate", hex: "#5B6470" },
+      { name: "Mustard", hex: "#CF9A2A" },
+    ],
+    price: 3100,
+    blurb: "Textured Bhagalpuri silk, light and easy to wear.",
+    details:
+      "A textured Bhagalpuri (tussar-style) silk with a subtle slub and a simple border — understated and comfortable. Available in Slate and Mustard.",
+    images: ["/products/DLL-107.svg"],
+  },
+  {
+    id: "DLL-108",
+    name: "Natural Tussar Silk",
+    fabric: "silk",
+    weave: "tussar",
+    occasions: ["traditional", "festive-wear", "gifting"],
+    colors: [
+      { name: "Natural Beige", hex: "#C9B08A" },
+      { name: "Rust", hex: "#B5532A" },
+    ],
+    price: 5600,
+    blurb: "Handwoven Tussar with its signature golden slub.",
+    details:
+      "A handwoven Tussar silk with its natural golden slub and a hand-painted border. Earthy, elegant and giftable. Available in Natural Beige and Rust.",
+    images: ["/products/DLL-108.svg"],
+  },
+  {
+    id: "DLL-109",
+    name: "Wine Organza",
+    fabric: "silk",
+    weave: "organza",
+    occasions: ["wedding", "festive-wear"],
+    colors: [{ name: "Wine", hex: "#5A142C" }],
+    price: 9800,
+    blurb: "Sheer organza with sequin-zari detailing.",
+    details:
+      "A wine organza silk saree with fine sequin and zari detailing — light, modern and made to move on a reception evening. A single unique piece with a matching blouse piece.",
+    images: ["/products/DLL-109.svg"],
+  },
+
+  // ---------------- COTTON ----------------
+  {
+    id: "DLL-201",
+    name: "Mustard Handloom Cotton",
+    fabric: "cotton",
+    weave: "handloom",
+    occasions: ["everyday", "office-wear"],
+    colors: [
+      { name: "Mustard", hex: "#CF9A2A" },
+      { name: "Indigo", hex: "#2E3A73" },
+      { name: "Maroon", hex: "#6E1E2E" },
+    ],
+    price: 1850,
+    blurb: "Crisp everyday handloom with a temple border.",
+    details:
+      "A handloom cotton saree with a fine temple border and a striped pallu. Breathable and easy to maintain. Available in Mustard, Indigo and Maroon.",
+    images: ["/products/DLL-201.svg"],
     featured: true,
   },
   {
     id: "DLL-202",
-    name: "Indigo Print Modal",
-    category: "modal-silk",
-    price: 3600,
-    fabric: "Modal Silk",
-    color: "Indigo",
-    blurb: "Hand-block indigo motifs on a soft ground.",
+    name: "Teal Khadi Cotton",
+    fabric: "cotton",
+    weave: "khadi",
+    occasions: ["everyday"],
+    colors: [{ name: "Teal", hex: "#1E6E6E" }],
+    price: 2100,
+    blurb: "Handspun khadi with a natural slub texture.",
     details:
-      "Deep indigo modal silk with hand-block printed floral motifs in ivory. Soft, breathable and beautifully fluid. Comes with a matching blouse piece.",
-    image: "/products/DLL-202.svg",
+      "Handspun teal khadi cotton with a natural slub and a simple cream border. Soft after the first wash and only gets better with age. A single piece.",
+    images: ["/products/DLL-202.svg"],
   },
   {
-    id: "DLL-301",
-    name: "Mustard Handloom Cotton",
-    category: "cotton",
-    price: 1850,
-    fabric: "Handloom Cotton",
-    color: "Mustard",
-    blurb: "Crisp everyday cotton with a temple border.",
+    id: "DLL-203",
+    name: "White Malmal Cotton",
+    fabric: "cotton",
+    weave: "malmal",
+    occasions: ["everyday", "office-wear"],
+    colors: [
+      { name: "White", hex: "#F0EBE2" },
+      { name: "Powder Blue", hex: "#A9C7E0" },
+    ],
+    price: 1650,
+    blurb: "Feather-soft mulmul cotton for hot days.",
     details:
-      "A mustard handloom cotton saree with a fine maroon temple border and a striped pallu. Breathable and easy to maintain — made for Indian weather.",
-    image: "/products/DLL-301.svg",
+      "A feather-soft Malmal (mulmul) cotton saree with a delicate printed border — the lightest thing for a hot afternoon. Available in White and Powder Blue.",
+    images: ["/products/DLL-203.svg"],
+  },
+  {
+    id: "DLL-204",
+    name: "Indigo Jamdani",
+    fabric: "cotton",
+    weave: "jamdani",
+    occasions: ["festive-wear", "traditional"],
+    colors: [
+      { name: "Indigo", hex: "#2E3A73" },
+      { name: "Off-White", hex: "#EDE7DA" },
+    ],
+    price: 4800,
+    blurb: "Handwoven Jamdani motifs floating on fine cotton.",
+    details:
+      "A handwoven Jamdani cotton with intricate motifs woven into the sheer body — a labour-intensive heritage craft. Available in Indigo and Off-White.",
+    images: ["/products/DLL-204.svg"],
+    featured: true,
+  },
+  {
+    id: "DLL-205",
+    name: "Rust Ikat Cotton",
+    fabric: "cotton",
+    weave: "ikat",
+    occasions: ["everyday", "festive-wear"],
+    colors: [
+      { name: "Rust", hex: "#B5532A" },
+      { name: "Teal", hex: "#1E6E6E" },
+      { name: "Black", hex: "#2A2320" },
+    ],
+    price: 2600,
+    blurb: "Bold Ikat patterns dyed into the yarn.",
+    details:
+      "A cotton Ikat saree where the pattern is dyed into the yarn before weaving, giving its signature soft-edged geometry. Available in Rust, Teal and Black.",
+    images: ["/products/DLL-205.svg"],
+  },
+  {
+    id: "DLL-206",
+    name: "Peach Chanderi",
+    fabric: "cotton",
+    weave: "chanderi",
+    occasions: ["festive-wear", "office-wear", "gifting"],
+    colors: [
+      { name: "Peach", hex: "#E7B79A" },
+      { name: "Mint", hex: "#BFE3D0" },
+      { name: "Lavender", hex: "#C9BCE0" },
+    ],
+    price: 3400,
+    blurb: "Sheer Chanderi with a soft glow and light zari.",
+    details:
+      "A Chanderi saree with its characteristic sheer glow and fine zari border — dressy yet light. Available in Peach, Mint and Lavender. Giftable.",
+    images: ["/products/DLL-206.svg"],
+  },
+
+  // ---------------- LINEN ----------------
+  {
+    id: "DLL-301",
+    name: "Slate Pure Linen",
+    fabric: "linen",
+    weave: "pure-linen",
+    occasions: ["office-wear", "everyday"],
+    colors: [
+      { name: "Slate Grey", hex: "#6B7480" },
+      { name: "Sand", hex: "#CDB79A" },
+      { name: "Powder Blue", hex: "#A9C7E0" },
+    ],
+    price: 2650,
+    blurb: "Crisp pure linen with a fine silver border.",
+    details:
+      "A slate-grey pure linen saree with a thin silver border — crisp, professional and comfortable through a full workday. Available in Slate Grey, Sand and Powder Blue.",
+    images: ["/products/DLL-301.svg"],
     featured: true,
   },
   {
     id: "DLL-302",
-    name: "Teal Khadi Cotton",
-    category: "cotton",
-    price: 2100,
-    fabric: "Khadi Cotton",
-    color: "Teal",
-    blurb: "Handspun khadi with a natural slub texture.",
+    name: "Sand Linen Blend",
+    fabric: "linen",
+    weave: "linen-blend",
+    occasions: ["office-wear"],
+    colors: [
+      { name: "Sand Beige", hex: "#CDB79A" },
+      { name: "Olive", hex: "#6E7A3A" },
+    ],
+    price: 2350,
+    blurb: "Soft linen-blend that resists wrinkles.",
     details:
-      "Handspun teal khadi cotton with a natural slub and a simple cream border. Soft after the first wash and only gets better with age.",
-    image: "/products/DLL-302.svg",
-  },
-  {
-    id: "DLL-401",
-    name: "Slate Linen Office Saree",
-    category: "office-wear",
-    price: 2650,
-    fabric: "Linen",
-    color: "Slate Grey",
-    blurb: "Understated linen for the working week.",
-    details:
-      "A slate-grey linen saree with a thin silver border — crisp, professional and comfortable through a full workday. Pairs with almost any blouse.",
-    image: "/products/DLL-401.svg",
-    featured: true,
-  },
-  {
-    id: "DLL-402",
-    name: "Sand Cotton-Silk Formal",
-    category: "office-wear",
-    price: 2950,
-    fabric: "Cotton-Silk Blend",
-    color: "Sand Beige",
-    blurb: "Soft sheen, wrinkle-friendly, meeting-ready.",
-    details:
-      "A sand-beige cotton-silk blend with a subtle sheen and a maroon piping border. Resists wrinkles and drapes neatly — an easy formal choice.",
-    image: "/products/DLL-402.svg",
-  },
-  {
-    id: "DLL-501",
-    name: "Maroon Temple Traditional",
-    category: "traditional",
-    price: 5400,
-    fabric: "Art Silk",
-    color: "Maroon & Gold",
-    blurb: "Classic temple border with a peacock pallu.",
-    details:
-      "A maroon art-silk saree with a wide gold temple border and a woven peacock pallu — the classic South-Indian silhouette for festivals and family occasions.",
-    image: "/products/DLL-501.svg",
-    featured: true,
-  },
-  {
-    id: "DLL-502",
-    name: "Royal Blue Kanjivaram-style",
-    category: "traditional",
-    price: 6800,
-    fabric: "Art Silk",
-    color: "Royal Blue",
-    blurb: "Contrast gold border with a grand pallu.",
-    details:
-      "A royal-blue art-silk saree in the Kanjivaram tradition, with a contrast gold border and a heavily woven pallu. Rich colour, festive presence.",
-    image: "/products/DLL-502.svg",
-  },
-  {
-    id: "DLL-601",
-    name: "Crimson Bridal Banarasi",
-    category: "wedding",
-    price: 24500,
-    fabric: "Pure Katan Silk",
-    color: "Crimson Red",
-    blurb: "The one for the big day — full zari body.",
-    details:
-      "A crimson pure-silk Banarasi with an all-over gold zari body, a grand pallu and a wide matching border. Designed to be the centre of the celebration. Includes a matching blouse piece.",
-    image: "/products/DLL-601.svg",
-    featured: true,
-  },
-  {
-    id: "DLL-602",
-    name: "Wine & Gold Reception Saree",
-    category: "wedding",
-    price: 19800,
-    fabric: "Organza Silk",
-    color: "Wine",
-    blurb: "Sheer organza with sequin-zari detailing.",
-    details:
-      "A wine organza-silk saree with fine sequin and zari detailing — light, modern and made to move on a reception evening. Comes with a matching blouse piece.",
-    image: "/products/DLL-602.svg",
-  },
-  {
-    id: "DLL-701",
-    name: "Rose Gift Saree",
-    category: "giftings",
-    price: 2900,
-    fabric: "Soft Silk",
-    color: "Rose Pink",
-    blurb: "Ready to gift, wrapped with a handwritten note.",
-    details:
-      "A rose-pink soft-silk saree with a delicate gold border, arriving gift-wrapped with a handwritten note of your choosing. A thoughtful present for someone you love.",
-    image: "/products/DLL-701.svg",
-    featured: true,
-  },
-  {
-    id: "DLL-702",
-    name: "Pastel Gift Box Saree",
-    category: "giftings",
-    price: 3400,
-    fabric: "Soft Silk",
-    color: "Pastel Mint",
-    blurb: "Presented in a keepsake gift box.",
-    details:
-      "A pastel-mint soft-silk saree with a silver border, presented in a reusable keepsake gift box. Elegant, easy to gift, and always the right size.",
-    image: "/products/DLL-702.svg",
+      "A sand-beige linen-blend with a subtle sheen and a maroon piping border. Resists wrinkles and drapes neatly — an easy formal choice. Available in Sand Beige and Olive.",
+    images: ["/products/DLL-302.svg"],
   },
 ];
 
@@ -217,15 +317,27 @@ export const PRODUCTS = [
 export function visibleProducts() {
   return PRODUCTS.filter((p) => !p.hidden);
 }
-
 export function featuredProducts() {
   return visibleProducts().filter((p) => p.featured);
 }
-
 export function productById(id) {
   return PRODUCTS.find((p) => p.id === id && !p.hidden) || null;
 }
-
-export function productsByCategory(slug) {
-  return visibleProducts().filter((p) => p.category === slug);
+export function productsByFabric(fabricSlug) {
+  return visibleProducts().filter((p) => p.fabric === fabricSlug);
+}
+export function productsByWeave(weaveSlug) {
+  return visibleProducts().filter((p) => p.weave === weaveSlug);
+}
+export function productsByOccasion(occasionSlug) {
+  return visibleProducts().filter((p) => (p.occasions || []).includes(occasionSlug));
+}
+// Combined filter — pass any of { fabric, weave, occasion }.
+export function filterProducts({ fabric, weave, occasion } = {}) {
+  return visibleProducts().filter((p) => {
+    if (fabric && p.fabric !== fabric) return false;
+    if (weave && p.weave !== weave) return false;
+    if (occasion && !(p.occasions || []).includes(occasion)) return false;
+    return true;
+  });
 }

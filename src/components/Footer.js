@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BRAND, CATEGORIES, waLink, mailLink } from "@/lib/constants";
+import { BRAND, FABRICS, OCCASIONS, waLink, mailLink } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -13,33 +13,37 @@ export default function Footer() {
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-ivory/80">
             {BRAND.tagline}. Woven with care, shipped across India.
           </p>
+          <ul className="mt-4 space-y-2 text-sm text-ivory/85">
+            <li><Link href="/collections" className="link-underline">All sarees</Link></li>
+            <li><Link href="/about" className="link-underline">About us</Link></li>
+            <li><Link href="/contact" className="link-underline">Contact</Link></li>
+          </ul>
         </div>
 
         <div>
-          <h4 className="text-sm uppercase tracking-wide2 text-gold-soft">Shop</h4>
+          <h4 className="text-sm uppercase tracking-wide2 text-gold-soft">By fabric</h4>
           <ul className="mt-4 space-y-2 text-sm text-ivory/85">
-            {CATEGORIES.map((c) => (
-              <li key={c.slug}>
-                <Link href={`/collections?category=${c.slug}`} className="link-underline">
-                  {c.name}
-                </Link>
+            {FABRICS.map((f) => (
+              <li key={f.slug}>
+                <Link href={`/collections?fabric=${f.slug}`} className="link-underline">{f.name}</Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm uppercase tracking-wide2 text-gold-soft">Company</h4>
+          <h4 className="text-sm uppercase tracking-wide2 text-gold-soft">By occasion</h4>
           <ul className="mt-4 space-y-2 text-sm text-ivory/85">
-            <li><Link href="/about" className="link-underline">About us</Link></li>
-            <li><Link href="/contact" className="link-underline">Contact</Link></li>
-            <li><Link href="/collections" className="link-underline">All sarees</Link></li>
-            <li><Link href="/signup" className="link-underline">Create account</Link></li>
+            {OCCASIONS.map((o) => (
+              <li key={o.slug}>
+                <Link href={`/collections?occasion=${o.slug}`} className="link-underline">{o.name}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm uppercase tracking-wide2 text-gold-soft">Order & help</h4>
+          <h4 className="text-sm uppercase tracking-wide2 text-gold-soft">Order &amp; help</h4>
           <ul className="mt-4 space-y-2 text-sm text-ivory/85">
             <li>
               <a href={waLink("Hello Diksha's Little Looms! I have a question about your sarees.")}

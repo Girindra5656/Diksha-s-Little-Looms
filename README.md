@@ -147,46 +147,79 @@ with the admin email/password from your `.env`. Customers can register at
 
 ## 5. Make it yours (products, brand, photos)
 
-Everything you'll want to change is in easy-to-find files.
+Everything you'll want to change is in two easy-to-find files.
+
+### How the shop is organised
+Customers browse two ways, and a saree can appear in both:
+
+- **By fabric → weave** — e.g. Silk → Banarasi, Cotton → Jamdani, Linen → Pure Linen
+- **By occasion** — Everyday, Office Wear, Festive Wear, Traditional, Wedding, Gifting
+
+The list of fabrics, their weaves, and the occasions all live in
+**`src/lib/constants.js`** (the `FABRICS` and `OCCASIONS` sections). Add, remove or
+rename anything there — just keep each `slug` lowercase-with-hyphens and unique.
 
 ### Add / edit / remove sarees
 Open **`src/data/products.js`**. Each saree is a block like this:
 
 ```js
 {
-  id: "DLL-101",              // a unique code (also the photo file name)
-  name: "Rani Zari Banarasi",
-  category: "banarasi-silk",  // must match a category slug (see below)
-  price: 12500,               // number only, in rupees
-  fabric: "Pure Katan Silk",
-  color: "Deep Wine",
+  id: "DLL-101",                 // unique code (also the photo file name)
+  name: "Rani Pink Katan Banarasi",
+  fabric: "silk",                // silk | cotton | linen
+  weave: "katan",                // a weave slug that belongs to that fabric
+  occasions: ["wedding", "festive-wear"],  // one or more
+  colors: [                      // ONE colour = a single unique piece
+    { name: "Rani Pink", hex: "#B03060" },   // MANY = customer picks one
+    { name: "Deep Wine", hex: "#7A1E3C" },
+  ],
+  price: 12500,                  // number only, in rupees
   blurb: "One short line shown on the card.",
   details: "A longer description for the product page.",
-  image: "/products/DLL-101.svg",
-  featured: true,             // show on the home page
-  // hidden: true,            // uncomment to hide from the shop
+  images: ["/products/DLL-101.svg"],  // first photo is the main one
+  featured: true,                // show on the home page
+  // hidden: true,               // uncomment to hide from the shop
 },
 ```
 
-- **To add a saree:** copy a block, paste it, change the details, and give it a new `id`.
+- **To add a saree:** copy a block, paste it, change the details, give it a new `id`.
 - **To remove one:** delete its block.
 - **To hide one:** add `hidden: true,` to it.
+- **Colours:** list one colour for a one-of-a-kind piece, or several for a design
+  that comes in multiple colours (customers are asked to name their pick on
+  WhatsApp). The `hex` is just the little colour dot — a rough match is fine.
 
-Valid category slugs: `banarasi-silk`, `modal-silk`, `cotton`, `office-wear`,
-`traditional`, `wedding`, `giftings`.
+Valid weave slugs by fabric:
+- **silk:** `banarasi`, `katan`, `modal`, `kesar`, `bangalori`, `bhagalpuri`, `tussar`, `organza`
+- **cotton:** `handloom`, `khadi`, `malmal`, `jamdani`, `ikat`, `chanderi`
+- **linen:** `pure-linen`, `linen-blend`
+
+Valid occasion slugs: `everyday`, `office-wear`, `festive-wear`, `traditional`,
+`wedding`, `gifting`.
 
 ### Add real saree photos
 The site ships with placeholder images. To use real photos:
 
 1. Save each photo into the **`public/products/`** folder.
-2. Name it after the saree's `id`, e.g. `DLL-101.jpg`.
-3. In `products.js`, set `image: "/products/DLL-101.jpg"`.
+2. Name it after the saree's `id`, e.g. `DLL-101.jpg` (add `DLL-101b.jpg`,
+   `DLL-101c.jpg` for extra angles).
+3. In `products.js`, set `images: ["/products/DLL-101.jpg", "/products/DLL-101b.jpg"]`.
 
-(Square-ish "portrait" photos, about 800×1000 pixels, look best.)
+(Portrait photos, about 800×1000 pixels, look best.)
 
 ### Change contact details, brand name, WhatsApp number
 Open **`src/lib/constants.js`** and edit the `BRAND` section at the top. Change it
 in this one place and it updates everywhere on the site.
+
+### Push your changes live
+After editing, save your work to GitHub — Vercel then updates the live site in about
+a minute:
+
+```bash
+git add -A
+git commit -m "describe what you changed"
+git push
+```
 
 ---
 

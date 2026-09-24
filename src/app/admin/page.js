@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import { PRODUCTS } from "@/data/products";
-import { CATEGORIES, categoryName } from "@/lib/constants";
+import { FABRICS, fabricName, weaveName } from "@/lib/constants";
 import { formatPrice } from "@/components/ProductCard";
 import LogoutButton from "@/components/LogoutButton";
 
@@ -48,7 +48,7 @@ export default async function AdminPage() {
       <div className="mt-8 grid gap-4 sm:grid-cols-4">
         <Stat label="Sarees live" value={visible} />
         <Stat label="Sarees hidden" value={hidden} />
-        <Stat label="Categories" value={CATEGORIES.length} />
+        <Stat label="Fabrics" value={FABRICS.length} />
         <Stat label="Registered users" value={dbError ? "—" : users.length} />
       </div>
 
@@ -72,7 +72,7 @@ export default async function AdminPage() {
           <table className="w-full min-w-[640px] text-left text-sm">
             <thead className="bg-cream text-ink">
               <tr>
-                <Th>Code</Th><Th>Name</Th><Th>Category</Th><Th>Price</Th><Th>Status</Th>
+                <Th>Code</Th><Th>Name</Th><Th>Fabric / Weave</Th><Th>Price</Th><Th>Status</Th>
               </tr>
             </thead>
             <tbody>
@@ -80,7 +80,7 @@ export default async function AdminPage() {
                 <tr key={p.id} className="border-t border-line">
                   <Td className="font-mono text-xs">{p.id}</Td>
                   <Td className="font-medium text-ink">{p.name}</Td>
-                  <Td>{categoryName(p.category)}</Td>
+                  <Td>{fabricName(p.fabric)} · {weaveName(p.weave)}</Td>
                   <Td>{formatPrice(p.price)}</Td>
                   <Td>
                     {p.hidden ? (
