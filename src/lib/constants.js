@@ -10,6 +10,10 @@ export const BRAND = {
   whatsappNumber: "917011024750", // digits only, with country code
   phoneDisplay: "+91 70110 24750",
   email: "diksha11081993@gmail.com",
+  // Registered business address (shown in footer + contact page).
+  address: "Flora Heritage Tower, C-2004, Greater Noida West, Sector 1, 201318",
+  // Registration / Unique Identification Number (shown in footer + contact).
+  uin: "092600388546ESO",
   city: "India",
   instagram: "", // e.g. "https://instagram.com/your-handle" (leave "" to hide)
 };

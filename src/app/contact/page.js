@@ -61,6 +61,26 @@ export default function ContactPage() {
             Shipping is free across India, and every parcel is sent with tracking.
           </p>
         </div>
+
+        {(BRAND.address || BRAND.uin) && (
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            {BRAND.address && (
+              <div className="card p-6">
+                <h3 className="font-display text-lg text-ink">Registered address</h3>
+                <address className="mt-2 not-italic text-sm leading-relaxed text-muted">
+                  {BRAND.address}
+                </address>
+              </div>
+            )}
+            {BRAND.uin && (
+              <div className="card p-6">
+                <h3 className="font-display text-lg text-ink">Business details</h3>
+                <p className="mt-2 text-sm text-muted">UIN</p>
+                <p className="font-medium text-ink">{BRAND.uin}</p>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

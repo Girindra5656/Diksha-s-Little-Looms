@@ -18,6 +18,14 @@ export default function Footer() {
             <li><Link href="/about" className="link-underline">About us</Link></li>
             <li><Link href="/contact" className="link-underline">Contact</Link></li>
           </ul>
+          {BRAND.address && (
+            <address className="mt-4 max-w-xs not-italic text-sm leading-relaxed text-ivory/80">
+              {BRAND.address}
+            </address>
+          )}
+          {BRAND.uin && (
+            <p className="mt-2 text-xs text-ivory/70">UIN: {BRAND.uin}</p>
+          )}
         </div>
 
         <div>
