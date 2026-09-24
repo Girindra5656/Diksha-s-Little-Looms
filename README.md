@@ -254,6 +254,16 @@ customer and an overview of all your sarees.
 - **Fonts/images look plain when offline** — the elegant fonts load from the
   internet; they appear once you're online.
 - **Port 3000 is busy** — run `npm run dev -- -p 3001` and open http://localhost:3001.
+- **Git says "not a git repository"** (can happen if unzipping dropped the hidden
+  `.git` folder) — reconnect it once from inside the project folder:
+  ```bash
+  git init
+  git branch -M main
+  git remote add origin https://github.com/Girindra5656/Diksha-s-Little-Looms.git
+  git add -A
+  git commit -m "Diksha's Little Looms - initial website"
+  git push -u origin main
+  ```
 
 ---
 
