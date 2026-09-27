@@ -76,6 +76,7 @@ export const FABRICS = [
       { slug: "printed-chiffon", name: "Printed" },
       { slug: "embroidered-chiffon", name: "Embroidered" },
       { slug: "bandhani-chiffon", name: "Bandhani" },
+      { slug: "leheriya-chiffon", name: "Leheriya" },
     ],
   },
   {
