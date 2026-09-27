@@ -25,6 +25,11 @@ export default function ProductCard({ product }) {
         <span className="absolute left-3 top-3 rounded-full bg-ivory/95 px-3 py-1 text-[11px] tracking-wide text-wine">
           {weaveName(product.weave)}
         </span>
+        {product.mrp && product.mrp > product.price && (
+          <span className="absolute right-3 top-3 rounded-full bg-wine px-2.5 py-1 text-[11px] font-medium text-ivory">
+            {Math.round((1 - product.price / product.mrp) * 100)}% OFF
+          </span>
+        )}
       </div>
       <div className="p-4">
         <h3 className="font-display text-lg leading-snug text-ink">{product.name}</h3>
@@ -45,7 +50,12 @@ export default function ProductCard({ product }) {
         )}
 
         <div className="mt-3 flex items-center justify-between">
-          <span className="font-medium text-wine">{formatPrice(product.price)}</span>
+          <span className="flex items-baseline gap-2">
+            <span className="font-medium text-wine">{formatPrice(product.price)}</span>
+            {product.mrp && product.mrp > product.price && (
+              <span className="text-xs text-muted line-through">{formatPrice(product.mrp)}</span>
+            )}
+          </span>
           <span className="text-sm text-gold transition group-hover:translate-x-0.5">
             View saree
           </span>

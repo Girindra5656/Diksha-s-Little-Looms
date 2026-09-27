@@ -414,6 +414,58 @@ export const PRODUCTS = [
     images: ["/products/DLL-902.svg"],
     featured: true,
   },
+
+  // ---------------- REAL SAREES (georgette prints) ----------------
+  {
+    id: "DLL-112",
+    name: "Sunset Orange — Leheriya Wave Saree",
+    fabric: "georgette",
+    weave: "leheriya-georgette",
+    occasions: ["festive-wear", "wedding", "everyday"],
+    colors: [{ name: "Bright Orange", hex: "#E8620C" }],
+    mrp: 2999,
+    price: 1999,
+    blurb: "Flowing leheriya waves in a bright festive orange.",
+    details:
+      "Light up any occasion with this bright orange leheriya saree. Fine diagonal wave stripes — the signature Rajasthani leheriya print — run across an airy, flowing georgette that drapes and moves beautifully. Its solid-toned blouse and clean palette make it a versatile, eye-catching choice for haldi ceremonies, daytime events and festive outings. Comes with a matching unstitched blouse piece. Saree 5.5 m (approx.).",
+    images: ["/products/DLL-112.jpg", "/products/DLL-112b.jpg"],
+    featured: false,
+  },
+  {
+    id: "DLL-113",
+    name: "Rajwadi Rani — Purple Bandhej Tie-Dye Saree",
+    fabric: "georgette",
+    weave: "bandhani-georgette",
+    occasions: ["festive-wear", "traditional"],
+    colors: [{ name: "Purple / Magenta", hex: "#9B1C6E" }],
+    mrp: 2999,
+    price: 1999,
+    blurb: "Timeless Rajasthani bandhani in a regal purple-magenta.",
+    details:
+      "Celebrate heritage craft with this classic bandhej (bandhani) tie-dye saree. Diagonal bands are filled with intricate white and amber bandhani dots against a deep purple-magenta base, giving the drape a rich, traditional Rajasthani character. Lightweight and fluid, it drapes softly and photographs beautifully — an easy pick for festivals, poojas and family functions. Comes with a matching unstitched blouse piece. Saree 5.5 m (approx.).",
+    images: ["/products/DLL-113.jpg", "/products/DLL-113b.jpg"],
+    featured: false,
+  },
+  {
+    id: "DLL-114",
+    name: "Marigold Bloom — Pink & Orange Floral Saree",
+    fabric: "georgette",
+    weave: "floral-georgette",
+    occasions: ["festive-wear", "everyday"],
+    colors: [{ name: "Rani Pink & Orange", hex: "#E8397A" }],
+    mrp: 2999,
+    price: 1999,
+    blurb: "A burst of sunshine florals on a rani-pink canvas.",
+    details:
+      "Bring festive cheer to your wardrobe with this vibrant floral-printed saree. A rich rani-pink base is covered edge to edge in blooming marigold-orange and blush florals, framed by a bold magenta border and a patterned pallu. The lightweight, semi-sheer georgette falls gracefully and is easy to carry all day — perfect for colour, comfort and effortless elegance. Comes with a matching unstitched blouse piece. Saree 5.5 m (approx.).",
+    images: [
+      "/products/DLL-114.jpg",
+      "/products/DLL-114b.jpg",
+      "/products/DLL-114c.jpg",
+      "/products/DLL-114d.jpg",
+    ],
+    featured: true,
+  },
 ];
 
 // --- helpers used across the site (you don't need to edit these) ---

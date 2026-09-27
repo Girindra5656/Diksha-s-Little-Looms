@@ -87,7 +87,17 @@ export default function ProductPage({ params }) {
         <div>
           <p className="eyebrow">{fabricName(product.fabric)} · {weaveName(product.weave)}</p>
           <h1 className="mt-2 font-display text-4xl leading-tight text-ink">{product.name}</h1>
-          <p className="mt-4 text-2xl font-medium text-wine">{formatPrice(product.price)}</p>
+          <div className="mt-4 flex flex-wrap items-baseline gap-3">
+            <span className="text-2xl font-medium text-wine">{formatPrice(product.price)}</span>
+            {product.mrp && product.mrp > product.price && (
+              <>
+                <span className="text-lg text-muted line-through">{formatPrice(product.mrp)}</span>
+                <span className="rounded-full bg-[#1FA855]/12 px-2.5 py-1 text-xs font-medium text-[#1FA855]">
+                  Save {Math.round((1 - product.price / product.mrp) * 100)}%
+                </span>
+              </>
+            )}
+          </div>
 
           {/* colours */}
           {colors.length > 0 && (

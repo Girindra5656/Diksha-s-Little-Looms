@@ -87,6 +87,9 @@ export const FABRICS = [
       { slug: "printed-georgette", name: "Printed" },
       { slug: "embroidered-georgette", name: "Embroidered" },
       { slug: "sequin-georgette", name: "Sequin" },
+      { slug: "leheriya-georgette", name: "Leheriya" },
+      { slug: "bandhani-georgette", name: "Bandhani" },
+      { slug: "floral-georgette", name: "Floral" },
     ],
   },
 ];
